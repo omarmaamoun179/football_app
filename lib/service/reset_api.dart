@@ -33,6 +33,6 @@ class ApiService {
       // Handle the exception
       print('Exception: $e');
     }
-    return resetAPI();
+    return footballModel!;
   }
 }
