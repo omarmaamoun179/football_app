@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/cubit/football_cubit.dart';
 
-import '../models/football_model/football_model.dart';
+import '../models/football_model.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    FootballModel footballModel = FootballModel();
-    Match? match;
+    FootballModel? footballModel;
+    
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -22,11 +22,7 @@ class HomeWidget extends StatelessWidget {
               Container(
                 child: Column(
                   children: [
-                    Image.asset(
-                      'assets/images/OIP (1).jpg',
-                      height: 100,
-                      width: 100,
-                    ),
+                   FancyShimmerImage(imageUrl: '${footballModel!.matches![0].homeTeam!.crest}'),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(

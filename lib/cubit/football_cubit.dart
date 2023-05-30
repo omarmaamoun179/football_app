@@ -2,7 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:football_app/service/reset_api.dart';
 
-import '../models/football_model/football_model.dart';
+import '../models/football_model.dart';
+
 
 part 'football_state.dart';
 
@@ -13,8 +14,8 @@ class FootballCubit extends Cubit<FootballState> {
   void getResults() async {
     emit(FootballLoading());
     try {
-      await apiService.getMatches();
-      emit(Footballsuccess());
+      await apiService.resetAPI();
+      emit(Footballsuccess(footballModel!));
     } on Exception catch (e) {}
   }
 }

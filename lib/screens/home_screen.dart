@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    BlocProvider.of<FootballCubit>(context).apiService.getMatches();
+    BlocProvider.of<FootballCubit>(context).apiService.resetAPI();
     super.initState();
   }
 
